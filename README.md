@@ -1,6 +1,8 @@
 # react-16x-starter
 
 [![CircleCI](https://circleci.com/gh/demonmhon/react-16x-starter/tree/master.svg?style=svg)](https://circleci.com/gh/demonmhon/react-16x-starter/tree/master)
+[![Maintainability](https://api.codeclimate.com/v1/badges/0d79bf0a50031716bdcc/maintainability)](https://codeclimate.com/github/demonmhon/react-16x-starter/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/0d79bf0a50031716bdcc/test_coverage)](https://codeclimate.com/github/demonmhon/react-16x-starter/test_coverage)
 
 The react 16x starter. Also Docker setup for production build.
 
