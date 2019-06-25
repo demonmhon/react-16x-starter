@@ -5,7 +5,7 @@ const propTypes = {};
 
 const defaultProps = {};
 
-class Error404Page extends React.Component {
+class AboutPage extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -13,14 +13,14 @@ class Error404Page extends React.Component {
   render() {
     return (
       <div>
-        <h1>Error 404</h1>
+        <h1>About</h1>
       </div>
     );
   }
 }
 
-Error404Page.propTypes = propTypes;
-Error404Page.defaultProps = defaultProps;
+AboutPage.propTypes = propTypes;
+AboutPage.defaultProps = defaultProps;
 
-export { Error404Page };
-export default Error404Page;
+export { AboutPage as HomePage };
+export default AboutPage;

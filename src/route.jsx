@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import HomePage from './pages/home';
-import Error404Page from './pages/error-404';
+import { HomePage, AboutPage, Error404Page } from './pages';
 
 class AppRoute extends React.Component {
   constructor(props) {
@@ -13,12 +12,11 @@ class AppRoute extends React.Component {
 
   render() {
     return (
-      <BrowserRouter>
-        <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route component={Error404Page} />
-        </Switch>
-      </BrowserRouter>
+      <Switch>
+        <Route exact path="/" component={HomePage} />
+        <Route path="/about" component={AboutPage} />
+        <Route component={Error404Page} />
+      </Switch>
     );
   }
 }

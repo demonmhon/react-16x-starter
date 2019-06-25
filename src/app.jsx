@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
 
 import Route from './route';
 import { init } from './redux/actions/app';
@@ -26,13 +27,15 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="app">
-        <div className="app__body">
-          <div className="app__body__container">
-            <Route />
+      <BrowserRouter>
+        <div className="app">
+          <div className="app__body">
+            <div className="app__body__container">
+              <Route />
+            </div>
           </div>
         </div>
-      </div>
+      </BrowserRouter>
     );
   }
 }
