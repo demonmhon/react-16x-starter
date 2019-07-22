@@ -10,13 +10,11 @@ const envKeys = Object.keys(env).reduce((prev, next) => {
   return prev;
 }, {});
 
-const mapStyle = process.env.MAP_STYLE === 'true';
-
 module.exports = merge(common, {
   mode: 'development',
   devtool: 'inline-source-map',
   devServer: {
-    port: process.env.PORT || 3000,
+    port: parseInt(process.env.PORT, 10) || 3000,
     historyApiFallback: true,
     overlay: true,
     open: false,
@@ -24,13 +22,6 @@ module.exports = merge(common, {
   },
   module: {
     rules: [
-      {
-        test: /\.css$/,
-        use: [
-          { loader: 'style-loader' },
-          { loader: mapStyle ? 'css-loader?sourceMap' : 'css-loader' }
-        ]
-      },
       {
         test: /\.s(a|c)ss$/,
         use: [
