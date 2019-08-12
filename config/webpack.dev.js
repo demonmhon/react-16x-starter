@@ -19,18 +19,6 @@ module.exports = merge(common, {
     open: false,
     stats: 'errors-only'
   },
-  module: {
-    rules: [
-      {
-        test: /\.s(a|c)ss$/,
-        use: [
-          { loader: 'style-loader' },
-          { loader: 'css-loader' },
-          { loader: 'sass-loader' }
-        ]
-      },
-    ]
-  },
   plugins: [
     new webpack.DefinePlugin(envKeys)
   ],

@@ -2,8 +2,6 @@ const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const mapStyle = process.env.MAP_STYLE === 'true';
-
 module.exports = {
   entry: {
     main: path.resolve(__dirname, '../src', 'index.js'),
@@ -16,10 +14,11 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.s(a|c)ss$/,
         use: [
           { loader: 'style-loader' },
-          { loader: mapStyle ? 'css-loader?sourceMap' : 'css-loader' }
+          { loader: 'css-loader' },
+          { loader: 'sass-loader' }
         ]
       },
       {
