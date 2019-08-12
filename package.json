@@ -14,6 +14,7 @@
     "start": "npm run start:dev",
     "start:dev": "cross-env NODE_ENV=development webpack-dev-server --config=config/webpack.dev.js --hot",
     "start:docker": "docker run -d -p 3000:80 react-16x-stater",
+    "analyze": "webpack --config=config/webpack.prod.js --profile --json > webpack-bundle-analyzer/stats.json && webpack-bundle-analyzer webpack-bundle-analyzer/stats.json",
     "pretest": "npm run lint",
     "test": "jest",
     "test:coverage": "jest --coverage",
@@ -62,6 +63,7 @@
     "style-loader": "^0.23.1",
     "url-loader": "^2.1.0",
     "webpack": "^4.36.1",
+    "webpack-bundle-analyzer": "^3.4.1",
     "webpack-cli": "^3.3.6",
     "webpack-dev-server": "^3.7.2",
     "webpack-merge": "^4.2.1"
