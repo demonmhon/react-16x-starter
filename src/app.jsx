@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
@@ -14,30 +14,22 @@ const defaultProps = {
   init() {},
 };
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
+function App(props) {
+  useEffect(() => {
+    props.init();
+  }, []);
 
-    this.state = {};
-  }
-
-  componentDidMount() {
-    this.props.init();
-  }
-
-  render() {
-    return (
-      <BrowserRouter>
-        <div className="app">
-          <div className="app__body">
-            <div className="app__body__container">
-              <Route />
-            </div>
+  return (
+    <BrowserRouter>
+      <div className="app">
+        <div className="app__body">
+          <div className="app__body__container">
+            <Route />
           </div>
         </div>
-      </BrowserRouter>
-    );
-  }
+      </div>
+    </BrowserRouter>
+  );
 }
 
 const mapStateToProps = state => {

@@ -5,20 +5,14 @@ import { connect } from 'react-redux';
 
 import { HomePage, AboutPage, Error404Page } from './pages';
 
-class AppRoute extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return (
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route path="/about" component={AboutPage} />
-        <Route component={Error404Page} />
-      </Switch>
-    );
-  }
+function AppRoute(props) {
+  return (
+    <Switch>
+      <Route exact path="/" component={HomePage} />
+      <Route path="/about" component={AboutPage} />
+      <Route component={Error404Page} />
+    </Switch>
+  );
 }
 
 AppRoute.propTypes = {};
