@@ -5,6 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 import Route from './route';
 import { init } from './redux/actions/app';
+import { Header } from 'components';
 
 const propTypes = {
   init: PropTypes.func,
@@ -24,6 +25,7 @@ function App(props) {
       <div className="app">
         <div className="app__body">
           <div className="app__body__container">
+            <Header />
             <Route />
           </div>
         </div>
@@ -49,7 +51,4 @@ App.defaultProps = defaultProps;
 
 export { App };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

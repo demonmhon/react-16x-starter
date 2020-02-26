@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+const WorkboxPlugin = require('workbox-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -10,7 +11,7 @@ module.exports = {
   output: {
     filename: '[name].[hash].js',
     path: path.resolve(__dirname, '../dist'),
-    publicPath: '/'
+    publicPath: '/',
   },
   module: {
     rules: [
@@ -18,59 +19,71 @@ module.exports = {
         test: /\.s(a|c)ss$/,
         use: [
           { loader: 'style-loader' },
-          {
-            loader: 'css-loader',
-            options: {
-              modules: {
-                mode: 'local',
-                localIdentName: `[local]-[hash:base64:5]`,
-              },
-            }
-          },
-          { loader: 'sass-loader' }
-        ]
+          { loader: 'css-loader' },
+          { loader: 'sass-loader' },
+        ],
       },
       {
         test: /\.(js|jsx)$/,
         exclude: [/node_modules/],
-        use: [{ loader: 'babel-loader' }]
+        use: [{ loader: 'babel-loader' }],
       },
       {
         test: /.*\.(gif|png|jpe?g|svg)$/i,
-        use: [{
-          loader: 'file-loader',
-          options: {
-            name: '[name].[ext]?[hash]',
-            outputPath: 'images'
-          }
-        }]
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]?[hash]',
+              outputPath: 'images',
+            },
+          },
+        ],
       },
       {
         test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
-        use: [{
-          loader: 'file-loader',
-          options: {
-            name: '[name].[ext]?[hash]',
-            outputPath: 'fonts'
-          }
-        }]
-      }
-    ]
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]?[hash]',
+              outputPath: 'fonts',
+            },
+          },
+        ],
+      },
+    ],
   },
   plugins: [
     new HtmlWebPackPlugin({
-      template: path.resolve(__dirname, '../src/public', 'index.html'),
+      template: path.resolve(__dirname, '../src', 'index.html'),
     }),
     new MiniCssExtractPlugin({
       filename: '[name].css',
     }),
     new CopyPlugin([
-      { from: path.resolve(__dirname, '../src/public', 'icon-192.png') },
-      { from: path.resolve(__dirname, '../src/public', 'manifest.json') },
-      { from: path.resolve(__dirname, '../src/public', 'service-worker.js') },
+      { from: path.resolve(__dirname, '../src/public/') },
+      { from: path.resolve(__dirname, '../src', 'manifest.json') },
     ]),
+    new WorkboxPlugin.GenerateSW({
+      runtimeCaching: [
+        {
+          urlPattern: /\.(js|jsx|css)$/,
+          handler: 'CacheFirst',
+          options: {
+            cacheName: 'assets',
+            expiration: {
+              maxEntries: 10,
+            },
+          },
+        },
+      ],
+    }),
   ],
   resolve: {
-    extensions: ['.js', '.jsx']
+    alias: {
+      'components': path.resolve(__dirname, '../src/components/'),
+    },
+    extensions: ['.js', '.jsx'],
   },
-}
+};

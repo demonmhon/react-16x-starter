@@ -1,5 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+
+import { BlankPage } from 'components';
 
 const propTypes = {};
 
@@ -11,11 +12,7 @@ class AboutPage extends React.Component {
   }
 
   render() {
-    return (
-      <div>
-        <h1>About</h1>
-      </div>
-    );
+    return <BlankPage title={`About`} />;
   }
 }
 

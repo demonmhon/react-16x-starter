@@ -1,4 +1,5 @@
 @import 'variables';
+@import 'layouts';
 
 // Basic Reset
 html {
@@ -15,4 +16,8 @@ html,
 body {
   margin: 0;
   padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }

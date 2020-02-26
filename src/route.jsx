@@ -1,11 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Switch, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { HomePage, AboutPage, Error404Page } from './pages';
 
-function AppRoute(props) {
+function AppRoute() {
   return (
     <Switch>
       <Route exact path="/" component={HomePage} />
@@ -19,17 +18,14 @@ AppRoute.propTypes = {};
 
 AppRoute.defaultProps = {};
 
-const mapStateToProps = state => {
+const mapStateToProps = () => {
   return {};
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = () => {
   return {};
 };
 
 export { AppRoute };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(AppRoute);
+export default connect(mapStateToProps, mapDispatchToProps)(AppRoute);
