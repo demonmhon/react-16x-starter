@@ -9,16 +9,16 @@ module.exports = merge(common, {
   devtool: 'source-map',
   optimization: {
     splitChunks: {
-      chunks: 'all'
+      chunks: 'all',
     },
-    runtimeChunk: false
+    runtimeChunk: false,
   },
   plugins: [
     new CleanWebpackPlugin(),
     new OptimizeCssAssetsPlugin(),
     new MiniCssExtractPlugin({
       filename: '[name].[hash:8].css',
-      chunkFilename: '[id].[hash:8].css'
-    })
-  ]
+      chunkFilename: '[id].[hash:8].css',
+    }),
+  ],
 });

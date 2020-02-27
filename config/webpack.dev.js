@@ -1,4 +1,6 @@
-const dotenv = require('dotenv').config({ path: `.env.${process.env.NODE_ENV}` });
+const dotenv = require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
 const webpack = require('webpack');
@@ -17,9 +19,7 @@ module.exports = merge(common, {
     historyApiFallback: true,
     overlay: true,
     open: false,
-    stats: 'errors-only'
+    stats: 'errors-only',
   },
-  plugins: [
-    new webpack.DefinePlugin(envKeys)
-  ],
+  plugins: [new webpack.DefinePlugin(envKeys)],
 });

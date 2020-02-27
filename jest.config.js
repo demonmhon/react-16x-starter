@@ -7,6 +7,7 @@ module.exports = {
   coverageDirectory: 'coverage',
   moduleFileExtensions: ['js', 'json', 'jsx'],
   moduleNameMapper: {
+    "^assets": "<rootDir>/src/assets",
     "^components": "<rootDir>/src/components"
   },
   setupFiles: ['<rootDir>/enzyme.config.js'],

@@ -62,17 +62,23 @@ module.exports = {
       filename: '[name].css',
     }),
     new CopyPlugin([
-      { from: path.resolve(__dirname, '../src/public/') },
-      { from: path.resolve(__dirname, '../src', 'manifest.json') },
+      {
+        from: path.resolve(__dirname, '../src/public/'),
+        ignore: ['.DS_Store'],
+      },
+      {
+        from: path.resolve(__dirname, '../src', 'manifest.json')
+      },
     ]),
     new WorkboxPlugin.InjectManifest({
       swSrc: path.resolve(__dirname, '../src/sw.js'),
-      swDest: 'sw.js'
-    })
+      swDest: 'sw.js',
+    }),
   ],
   resolve: {
     alias: {
-      'components': path.resolve(__dirname, '../src/components/'),
+      assets: path.resolve(__dirname, '../src/assets/'),
+      components: path.resolve(__dirname, '../src/components/'),
     },
     extensions: ['.js', '.jsx'],
   },
