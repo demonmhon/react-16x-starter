@@ -6,6 +6,9 @@ module.exports = {
   collectCoverageFrom: ['src/**/*.{js,jsx,mjs}'],
   coverageDirectory: 'coverage',
   moduleFileExtensions: ['js', 'json', 'jsx'],
+  moduleNameMapper: {
+    "^components": "<rootDir>/src/components"
+  },
   setupFiles: ['<rootDir>/enzyme.config.js'],
   testEnvironment: 'jsdom',
   testMatch: ['**/__tests__/**/*.js?(x)', '**/?(*.)+(spec|test).js?(x)'],

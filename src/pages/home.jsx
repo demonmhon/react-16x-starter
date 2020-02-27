@@ -12,7 +12,7 @@ class HomePage extends React.Component {
   }
 
   render() {
-    return <BlankPage title={`React 15x Starter`} />;
+    return <BlankPage title={`React 16x Starter`} />;
   }
 }
 
