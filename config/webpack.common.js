@@ -65,20 +65,10 @@ module.exports = {
       { from: path.resolve(__dirname, '../src/public/') },
       { from: path.resolve(__dirname, '../src', 'manifest.json') },
     ]),
-    new WorkboxPlugin.GenerateSW({
-      runtimeCaching: [
-        {
-          urlPattern: /\.(js|jsx|css)$/,
-          handler: 'CacheFirst',
-          options: {
-            cacheName: 'assets',
-            expiration: {
-              maxEntries: 10,
-            },
-          },
-        },
-      ],
-    }),
+    new WorkboxPlugin.InjectManifest({
+      swSrc: path.resolve(__dirname, '../src/sw.js'),
+      swDest: 'sw.js'
+    })
   ],
   resolve: {
     alias: {
