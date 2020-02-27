@@ -1,4 +1,8 @@
-importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.0.0/workbox-sw.js');
+/* eslint-disable no-undef */
+
+importScripts(
+  'https://storage.googleapis.com/workbox-cdn/releases/5.0.0/workbox-sw.js'
+);
 
 workbox.core.skipWaiting();
 workbox.core.clientsClaim();
@@ -18,7 +22,7 @@ workbox.routing.registerRoute(
         maxEntries: 60,
       }),
     ],
-  }),
+  })
 );
 
 self.addEventListener('push', event => {
