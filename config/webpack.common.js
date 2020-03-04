@@ -2,7 +2,6 @@ const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
-const WorkboxPlugin = require('workbox-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -67,13 +66,9 @@ module.exports = {
         ignore: ['.DS_Store'],
       },
       {
-        from: path.resolve(__dirname, '../src', 'manifest.json')
+        from: path.resolve(__dirname, '../src', 'manifest.json'),
       },
     ]),
-    new WorkboxPlugin.InjectManifest({
-      swSrc: path.resolve(__dirname, '../src/sw.js'),
-      swDest: 'sw.js',
-    }),
   ],
   resolve: {
     alias: {
