@@ -31,8 +31,6 @@ jobs:
           name: Build project
           command: npm run build
   deploy:
-    machine:
-      enabled: true
     steps:
       - checkout
       - run:
