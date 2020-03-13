@@ -2,9 +2,9 @@ version: 2
 
 jobs:
   build:
-    working_directory: ~/react-16x-starter
     docker:
       - image: circleci/node:12
+    working_directory: ~/react-16x-starter
     steps:
       - checkout
       - restore_cache:
@@ -31,8 +31,9 @@ jobs:
           name: Build project
           command: npm run build
   deploy:
-    docker:
-      - image: circleci/node:12
+    machine:
+      enabled: true
+    working_directory: ~/react-16x-starter
     steps:
       - checkout
       - run:
