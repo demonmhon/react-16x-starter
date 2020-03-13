@@ -15,7 +15,7 @@
     "lint": "eslint \"src/**/*.js\" \"src/**/*.jsx\" --ignore-pattern node_modules/",
     "prettier": "prettier --check \"src/**/*.js\"  --check \"src/**/*.jsx\"",
     "prettier:write": "prettier --check \"src/**/*.js\"  --check \"src/**/*.jsx\" --write",
-    "start": "npm run start:dev",
+    "start": "node server.js",
     "start:dev": "cross-env NODE_ENV=development webpack-dev-server --config=config/webpack.dev.js --hot",
     "start:docker": "docker run -d -p 3000:80 react-16x-stater",
     "analyze": "webpack --config=config/webpack.prod.js --profile --json > webpack-bundle-analyzer/stats.json && webpack-bundle-analyzer webpack-bundle-analyzer/stats.json",
@@ -75,5 +75,8 @@
     "webpack-dev-server": "^3.10.3",
     "webpack-merge": "^4.2.2",
     "workbox-webpack-plugin": "^5.0.0"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
   }
 }
