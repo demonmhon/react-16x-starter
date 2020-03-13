@@ -25,7 +25,7 @@ $ npm install
 The start the development server (webpack) with
 
 ```bash
-$ npm start
+$ npm start:dev
 ```
 
 
