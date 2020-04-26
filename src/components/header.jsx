@@ -1,13 +1,26 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { withRouter } from "react-router";
 
 import logo from 'assets/logo.png';
 
-const propTypes = {};
+const propTypes = {
+  match: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired
+};
 
-const defaultProps = {};
+const defaultProps = {
+  match: {},
+  location: {},
+  history: {}
+};
 
-const Header = () => {
+const Header = (props) => {
+  const { location } = props;
+  const { pathname } = location;
+
   return (
     <header className="app__header">
       <span className="app__header__logo">
@@ -16,10 +29,10 @@ const Header = () => {
         </Link>
       </span>
       <ul>
-        <li>
+        <li className={pathname === '/' ? 'active' : null}>
           <Link to="/">Home</Link>
         </li>
-        <li>
+        <li className={pathname === '/about' ? 'active' : null}>
           <Link to="/about">About</Link>
         </li>
       </ul>
@@ -31,4 +44,4 @@ Header.propTypes = propTypes;
 
 Header.defaultProps = defaultProps;
 
-export default Header;
+export default withRouter(Header);
