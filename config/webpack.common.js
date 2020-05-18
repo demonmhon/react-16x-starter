@@ -19,6 +19,15 @@ module.exports = {
         use: [
           { loader: 'style-loader' },
           { loader: 'css-loader' },
+          {
+            loader: 'postcss-loader',
+            options: {
+            sourceMap: true,
+              config: {
+                path: 'postcss.config.js'
+              }
+            }
+          },
           { loader: 'sass-loader' },
         ],
       },
