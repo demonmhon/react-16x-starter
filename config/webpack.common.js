@@ -19,15 +19,7 @@ module.exports = {
         use: [
           { loader: 'style-loader' },
           { loader: 'css-loader' },
-          {
-            loader: 'postcss-loader',
-            options: {
-            sourceMap: true,
-              config: {
-                path: 'postcss.config.js'
-              }
-            }
-          },
+          { loader: 'postcss-loader' },
           { loader: 'sass-loader' },
         ],
       },
@@ -69,15 +61,21 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: '[name].css',
     }),
-    new CopyPlugin([
-      {
-        from: path.resolve(__dirname, '../src/public/'),
-        ignore: ['.DS_Store'],
-      },
-      {
-        from: path.resolve(__dirname, '../src', 'manifest.json'),
-      },
-    ]),
+    new CopyPlugin({
+      patterns:[
+        {
+          from: path.resolve(__dirname, '../src/public/'),
+          to: path.resolve(__dirname, '../dist'),
+          globOptions: {
+            ignore: ['.DS_Store'],
+          }
+        },
+        {
+          from: path.resolve(__dirname, '../src', 'manifest.json'),
+          to: path.resolve(__dirname, '../dist'),
+        },
+      ]
+    }),
   ],
   resolve: {
     alias: {
