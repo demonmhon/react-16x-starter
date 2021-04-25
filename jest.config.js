@@ -11,7 +11,7 @@ module.exports = {
     "\\.(css|less)$": "<rootDir>/config/jest/style-mock.js",
     "^assets": "<rootDir>/src/assets",
     "^components": "<rootDir>/src/components",
-    "^core": "<rootDir>/src/core"
+    '^core[/](.+)': '<rootDir>/src/core/$1',
   },
   setupFiles: ['<rootDir>/enzyme.config.js'],
   testEnvironment: 'jsdom',
