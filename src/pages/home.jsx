@@ -6,14 +6,8 @@ const propTypes = {};
 
 const defaultProps = {};
 
-class HomePage extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return <BlankPage title={`React 16x Starter`} />;
-  }
+function HomePage(props) {
+  return <BlankPage title={`React 16x Starter`} />;
 }
 
 HomePage.propTypes = propTypes;

@@ -6,6 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 import Route from './route';
 import { init } from './redux/actions/app';
 import { Header } from 'components';
+import { APP } from 'core/constants'
 
 const propTypes = {
   init: PropTypes.func,
@@ -20,11 +21,13 @@ function App(props) {
     props.init();
   }, []);
 
+  const ns = APP.NAMESPACE
+
   return (
     <BrowserRouter>
-      <div className="app">
-        <div className="app__body">
-          <div className="app__body__container">
+      <div className={ns}>
+        <div className={`${ns}__body`}>
+          <div className={`${ns}__body__container`}>
             <Header />
             <Route />
           </div>
@@ -34,13 +37,13 @@ function App(props) {
   );
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     ...state.app,
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     init: () => dispatch(init()),
   };

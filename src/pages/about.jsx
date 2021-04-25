@@ -6,14 +6,8 @@ const propTypes = {};
 
 const defaultProps = {};
 
-class AboutPage extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return <BlankPage title={`About`} />;
-  }
+function AboutPage(props) {
+  return <BlankPage title={`About`} />;
 }
 
 AboutPage.propTypes = propTypes;

@@ -25,7 +25,7 @@ workbox.routing.registerRoute(
   })
 );
 
-self.addEventListener('push', event => {
+self.addEventListener('push', (event) => {
   const title = '';
   const options = {
     body: event.data.text(),

@@ -6,14 +6,8 @@ const propTypes = {};
 
 const defaultProps = {};
 
-class Error404Page extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return <BlankPage title={`Error 404`} />;
-  }
+function Error404Page(props) {
+  return <BlankPage title={`Error 404`} />;
 }
 
 Error404Page.propTypes = propTypes;
