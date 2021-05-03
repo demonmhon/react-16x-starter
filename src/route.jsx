@@ -1,22 +1,51 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { HomePage, AboutPage, Error404Page } from './pages';
+import Pages from './pages';
+
+const propTypes = {};
+
+const defaultProps = {};
+
+function PrivateRoute({ component: Component, ...rest }) {
+  // TODO: Implement authenticate hook
+  // TODO: Check for authorized
+  const isAuthenticated = false;
+  const redirectIfUnauthorized = false;
+  const unauthorizedComponent = redirectIfUnauthorized ? (
+    <Redirect
+      to={{
+        pathname: '/',
+      }}
+    />
+  ) : (
+    <Pages.Unauthorized />
+  );
+
+  return (
+    <Route
+      {...rest}
+      render={(props) =>
+        isAuthenticated ? <Component {...props} /> : unauthorizedComponent
+      }
+    />
+  );
+}
 
 function AppRoute() {
   return (
     <Switch>
-      <Route exact path="/" component={HomePage} />
-      <Route path="/about" component={AboutPage} />
-      <Route component={Error404Page} />
+      <Route exact path="/" component={Pages.Home} />
+      <Route path="/about" component={Pages.About} />
+      <PrivateRoute path="/account" component={Pages.Account} />
+      <Route component={Pages.Error404} />
     </Switch>
   );
 }
 
-AppRoute.propTypes = {};
-
-AppRoute.defaultProps = {};
+AppRoute.propTypes = propTypes;
+AppRoute.defaultProps = defaultProps;
 
 const mapStateToProps = () => {
   return {};

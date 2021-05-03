@@ -10,9 +10,12 @@
       text-decoration: none;
     }
 
+    ul {
+      display: block;
+    }
+
     ul,
     li {
-      display: inline-block;
       margin: 0;
       padding: 0;
     }
@@ -23,6 +26,7 @@
 
     li {
       position: relative;
+      display: inline-block;
       &::after {
         position: absolute;
         right: 0;
@@ -46,6 +50,10 @@
         width: auto;
         height: 32px;
       }
+    }
+
+    &__nav {
+      flex: 1;
     }
   }
 

@@ -30,12 +30,17 @@ const Header = (props) => {
           <img src={logo} alt="logo" />
         </Link>
       </span>
-      <ul>
+      <ul className={`${ns}__header__nav`}>
         <li className={pathname === '/' ? 'active' : null}>
           <Link to="/">Home</Link>
         </li>
         <li className={pathname === '/about' ? 'active' : null}>
           <Link to="/about">About</Link>
+        </li>
+      </ul>
+      <ul className={`${ns}__header__menu`}>
+        <li className={pathname === '/account' ? 'active' : null}>
+          <Link to="/account">Account</Link>
         </li>
       </ul>
     </header>
