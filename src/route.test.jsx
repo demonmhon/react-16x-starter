@@ -3,7 +3,7 @@ import { MemoryRouter } from 'react-router-dom';
 import { mount } from 'enzyme';
 
 import { AppRoute } from './route';
-import { HomePage, AboutPage, Error404Page } from './pages';
+import Pages from './pages';
 
 describe('Route', () => {
   test('should render home page', () => {
@@ -12,8 +12,8 @@ describe('Route', () => {
         <AppRoute />
       </MemoryRouter>
     );
-    expect(wrapper.find(HomePage)).toHaveLength(1);
-    expect(wrapper.find(Error404Page)).toHaveLength(0);
+    expect(wrapper.find(Pages.Home)).toHaveLength(1);
+    expect(wrapper.find(Pages.Error404)).toHaveLength(0);
   });
 
   test('should render about page', () => {
@@ -22,8 +22,8 @@ describe('Route', () => {
         <AppRoute />
       </MemoryRouter>
     );
-    expect(wrapper.find(AboutPage)).toHaveLength(1);
-    expect(wrapper.find(Error404Page)).toHaveLength(0);
+    expect(wrapper.find(Pages.About)).toHaveLength(1);
+    expect(wrapper.find(Pages.Error404)).toHaveLength(0);
   });
 
   test('should render 404 page', () => {
@@ -32,7 +32,7 @@ describe('Route', () => {
         <AppRoute />
       </MemoryRouter>
     );
-    expect(wrapper.find(HomePage)).toHaveLength(0);
-    expect(wrapper.find(Error404Page)).toHaveLength(1);
+    expect(wrapper.find(Pages.Home)).toHaveLength(0);
+    expect(wrapper.find(Pages.Error404)).toHaveLength(1);
   });
 });
