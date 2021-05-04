@@ -33,14 +33,15 @@ $ npm start:dev
 
 | Script | Description |
 |-|-|
-| `start` | Alias of `start:dev` |
+| `start` | Serve the built app fron `dist`, (must build first) |
 | `start:docker` | Start the app with docker (required `build:docker` first) |
-| `start:dev` | Start the app with `development` mode, `webpack-dev-server` and hot reload enabled |
+| `start:dev` | Start the app with `development` mode, `webpack-dev-server` and hot module replacement (HMR) enabled |
 | `test` | Jest and execute all the tests |
 | `test:coverage` | Generate a coverage report |
 | `test:watch` | Run all the tests and keep on watch mode |
 | `build` | Build the production build |
 | `build:docker` | Build docker image |
+| `analyze` | Run `webpack-bundle-analyzer` to visualize size of webpack output files |
 
 
 ## Resources
