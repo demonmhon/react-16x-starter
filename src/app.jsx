@@ -6,7 +6,9 @@ import { BrowserRouter } from 'react-router-dom';
 import Route from './route';
 import { init } from './redux/actions/app';
 import { Header } from 'components';
-import { APP } from 'core/constants'
+import { APP } from 'core/constants';
+
+const { NAMESPACE: ns } = APP;
 
 const propTypes = {
   init: PropTypes.func,
@@ -20,8 +22,6 @@ function App(props) {
   useEffect(() => {
     props.init();
   }, []);
-
-  const ns = APP.NAMESPACE
 
   return (
     <BrowserRouter>

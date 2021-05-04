@@ -43,9 +43,11 @@ $ npm start:dev
 | `build:docker` | Build docker image |
 
 
-## Further Resources
+## Resources
 
 For starter components. Find out more on [react-16x-starter-components](https://github.com/demonmhon/react-16x-starter-components).
+
+ * [Feather Icons](https://github.com/feathericons/feather)
 
 
 ## License

@@ -20,7 +20,7 @@ function PrivateRoute({ component: Component, ...rest }) {
       }}
     />
   ) : (
-    <Pages.Unauthorized />
+    <Pages.Login />
   );
 
   return (
@@ -38,6 +38,7 @@ function AppRoute() {
     <Switch>
       <Route exact path="/" component={Pages.Home} />
       <Route path="/about" component={Pages.About} />
+      <Route path="/login" component={Pages.Login} />
       <PrivateRoute path="/account" component={Pages.Account} />
       <Route component={Pages.Error404} />
     </Switch>

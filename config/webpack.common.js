@@ -29,7 +29,11 @@ module.exports = {
         use: [{ loader: 'babel-loader' }],
       },
       {
-        test: /.*\.(gif|png|jpe?g|svg)$/i,
+        test: /\.svg$/,
+        use: [{ loader: '@svgr/webpack' }],
+      },
+      {
+        test: /.*\.(gif|png|jpe?g)$/i,
         use: [
           {
             loader: 'file-loader',
