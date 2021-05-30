@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
@@ -6,6 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 import Route from './route';
 import { init } from './redux/actions/app';
 import { Header } from 'components';
+import { loadConfig } from 'core/config';
 import { APP } from 'core/constants';
 
 const { NAMESPACE: ns } = APP;
@@ -19,20 +20,29 @@ const defaultProps = {
 };
 
 function App(props) {
+  const [configLoaded, setConfigLoaded] = useState(false);
+
   useEffect(() => {
-    props.init();
+    async function initApp() {
+      await loadConfig();
+      props.init();
+      setConfigLoaded(true);
+    }
+    initApp();
   }, []);
 
   return (
     <BrowserRouter>
-      <div className={ns}>
-        <div className={`${ns}__body`}>
-          <div className={`${ns}__body__container`}>
-            <Header />
-            <Route />
+      {configLoaded ? (
+        <div className={ns}>
+          <div className={`${ns}__body`}>
+            <div className={`${ns}__body__container`}>
+              <Header />
+              <Route />
+            </div>
           </div>
         </div>
-      </div>
+      ) : null}
     </BrowserRouter>
   );
 }

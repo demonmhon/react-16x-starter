@@ -17,7 +17,7 @@ describe('app reducer', () => {
       )
     ).toEqual({
       isLoading: true,
-      isAPIHealthIsOK: false
+      isAPIHealthIsOK: false,
     });
   });
 });

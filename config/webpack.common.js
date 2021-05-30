@@ -1,3 +1,4 @@
+require('dotenv').config({ path: `.env.${process.env.NODE_ENV}` });
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -66,19 +67,23 @@ module.exports = {
       filename: '[name].css',
     }),
     new CopyPlugin({
-      patterns:[
+      patterns: [
+        {
+          from: path.resolve(__dirname, `../src/config/config.${process.env.NODE_ENV}.json`),
+          to: 'config.json',
+        },
         {
           from: path.resolve(__dirname, '../src/public/'),
           to: path.resolve(__dirname, '../dist'),
           globOptions: {
             ignore: ['.DS_Store'],
-          }
+          },
         },
         {
           from: path.resolve(__dirname, '../src', 'manifest.json'),
           to: path.resolve(__dirname, '../dist'),
         },
-      ]
+      ],
     }),
   ],
   resolve: {

@@ -1,5 +1,5 @@
 import ACTIONS from './types';
-import api from '../../core/api'
+import api from '../../core/api';
 
 // eslint-disable-next-line no-unused-vars
 export function init(params) {
@@ -15,11 +15,11 @@ export function doHealthCheck() {
   return async (dispatch, getState) => {
     dispatch({ type: ACTIONS.API_GET_HEALTH_CHECK });
     try {
-      await api.getHealth()
+      await api.getHealth();
       dispatch({ type: ACTIONS.API_SET_HEALTH_INFO, payload: true });
-    } catch(e) {
+    } catch (e) {
       dispatch({ type: ACTIONS.API_SET_HEALTH_INFO, payload: false });
     }
     return getState();
-  }
+  };
 }

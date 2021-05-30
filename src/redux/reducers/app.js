@@ -2,7 +2,7 @@ import ACTIONS from '../actions/types';
 
 export const initialState = {
   isLoading: false,
-  isAPIHealthIsOK: false
+  isAPIHealthIsOK: false,
 };
 
 export default function appReducer(state = initialState, action) {
@@ -18,8 +18,8 @@ export default function appReducer(state = initialState, action) {
     case ACTIONS.API_SET_HEALTH_INFO: {
       const newState = {
         ...state,
-        isAPIHealthIsOK: action.payload
-      }
+        isAPIHealthIsOK: action.payload,
+      };
       return newState;
     }
 
