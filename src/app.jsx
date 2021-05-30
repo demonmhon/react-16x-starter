@@ -33,16 +33,18 @@ function App(props) {
 
   return (
     <BrowserRouter>
-      {configLoaded ? (
-        <div className={ns}>
-          <div className={`${ns}__body`}>
-            <div className={`${ns}__body__container`}>
-              <Header />
-              <Route />
-            </div>
+      <div className={ns}>
+        <div className={`${ns}__body`}>
+          <div className={`${ns}__body__container`}>
+            {configLoaded ? (
+              <>
+                <Header />
+                <Route />
+              </>
+            ) : null}
           </div>
         </div>
-      ) : null}
+      </div>
     </BrowserRouter>
   );
 }
