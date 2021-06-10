@@ -88,6 +88,7 @@ module.exports = {
   ],
   resolve: {
     alias: {
+      react: path.resolve('./node_modules/react'),
       assets: path.resolve(__dirname, '../src/assets/'),
       components: path.resolve(__dirname, '../src/components/'),
       core: path.resolve(__dirname, '../src/core/'),

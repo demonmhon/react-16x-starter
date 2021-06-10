@@ -2,8 +2,9 @@ const dotenv = require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 const { merge } = require('webpack-merge');
-const common = require('./webpack.common.js');
 const webpack = require('webpack');
+
+const common = require('./webpack.common.js');
 
 const env = dotenv.parsed;
 const envKeys = Object.keys(env).reduce((prev, next) => {
