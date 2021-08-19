@@ -1,7 +1,9 @@
 let config = {};
 
 export const loadConfig = async () => {
-  const config = await fetch('/config.json');
+  const response = await fetch('/config.json');
+  config = await response.json();
+  config._loaded = true;
   return config;
 };
 
