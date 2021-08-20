@@ -19,7 +19,7 @@ const defaultProps = {
   init() {},
 };
 
-function App(props) {
+const App = (props) => {
   useEffect(() => {
     props.init();
   }, []);

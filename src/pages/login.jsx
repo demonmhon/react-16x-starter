@@ -9,7 +9,7 @@ const propTypes = {};
 
 const defaultProps = {};
 
-function LoginPage(props) {
+const UnauthorizedPage = (props) => {
   return (
     <div className={`${ns}-page ${ns}-page--login`}>
       <div className={`${ns}-page--login__login-box`}>

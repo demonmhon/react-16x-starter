@@ -6,7 +6,7 @@ const propTypes = {};
 
 const defaultProps = {};
 
-function AboutPage(props) {
+const AboutPage = (props) => {
   return <BlankPage title={`About`} />;
 }
 

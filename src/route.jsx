@@ -8,17 +8,13 @@ const propTypes = {};
 
 const defaultProps = {};
 
-function PrivateRoute({ component: Component, ...rest }) {
+const PrivateRoute = ({ component: Component, ...rest }) => {
   // TODO: Implement authenticate hook
   // TODO: Check for authorized
   const isAuthenticated = false;
   const redirectIfUnauthorized = false;
   const unauthorizedComponent = redirectIfUnauthorized ? (
-    <Redirect
-      to={{
-        pathname: '/',
-      }}
-    />
+    <Redirect to={{ pathname: '/' }} />
   ) : (
     <Pages.Login />
   );
@@ -33,7 +29,7 @@ function PrivateRoute({ component: Component, ...rest }) {
   );
 }
 
-function AppRoute() {
+const AppRoute = () => {
   return (
     <Switch>
       <Route exact path="/" component={Pages.Home} />

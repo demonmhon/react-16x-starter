@@ -6,7 +6,7 @@ const propTypes = {};
 
 const defaultProps = {};
 
-function AccountPage(props) {
+const AccountPage = (props) => {
   return <BlankPage title={`Account`} />;
 }
 
