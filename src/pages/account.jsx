@@ -8,7 +8,7 @@ const defaultProps = {};
 
 const AccountPage = (props) => {
   return <BlankPage title={`Account`} />;
-}
+};
 
 AccountPage.propTypes = propTypes;
 AccountPage.defaultProps = defaultProps;

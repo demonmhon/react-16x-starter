@@ -8,7 +8,7 @@ const defaultProps = {};
 
 const Error404Page = (props) => {
   return <BlankPage title={`Error 404`} />;
-}
+};
 
 Error404Page.propTypes = propTypes;
 Error404Page.defaultProps = defaultProps;

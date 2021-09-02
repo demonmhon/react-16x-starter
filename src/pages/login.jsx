@@ -9,7 +9,7 @@ const propTypes = {};
 
 const defaultProps = {};
 
-const UnauthorizedPage = (props) => {
+const LoginPage = (props) => {
   return (
     <div className={`${ns}-page ${ns}-page--login`}>
       <div className={`${ns}-page--login__login-box`}>
@@ -32,7 +32,7 @@ const UnauthorizedPage = (props) => {
       </div>
     </div>
   );
-}
+};
 
 LoginPage.propTypes = propTypes;
 LoginPage.defaultProps = defaultProps;

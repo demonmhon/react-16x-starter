@@ -8,7 +8,7 @@ const defaultProps = {};
 
 const UnauthorizedPage = (props) => {
   return <BlankPage title={`You are not authorized`} />;
-}
+};
 
 UnauthorizedPage.propTypes = propTypes;
 UnauthorizedPage.defaultProps = defaultProps;

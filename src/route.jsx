@@ -27,7 +27,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
       }
     />
   );
-}
+};
 
 const AppRoute = () => {
   return (
@@ -39,7 +39,7 @@ const AppRoute = () => {
       <Route component={Pages.Error404} />
     </Switch>
   );
-}
+};
 
 AppRoute.propTypes = propTypes;
 AppRoute.defaultProps = defaultProps;

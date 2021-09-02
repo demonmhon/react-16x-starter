@@ -8,8 +8,5 @@ export const loadConfig = async () => {
 };
 
 export const getConfig = () => {
-  if (config._loaded) {
-    return config;
-  }
-  return loadConfig();
+  return config;
 };

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
@@ -36,7 +36,7 @@ const App = (props) => {
       </div>
     </BrowserRouter>
   );
-}
+};
 
 const mapStateToProps = (state) => {
   return {
